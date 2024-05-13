@@ -302,9 +302,9 @@ for epoch in range(NUM_EPOCHES):
 
 # testing phase use all information
 dynllm.nodes_neighbors_finder = full_nodes_neighbors_finder
-test_precision, test_recall, test_ndcg, test_hit, test_mrr = eval_dynllm_recommendation(dynllm, val_rand_sampler, 
-                                                            validation_users, validation_items,
-                                                            validation_timestamps, validation_edges_idxs, items_static_embeddings, 'test', eval(args.Ks),
+test_precision, test_recall, test_ndcg, test_hit, test_mrr = eval_dynllm_recommendation(dynllm, test_rand_sampler, 
+                                                            test_users, test_items,
+                                                            test_timestamps, test_edges_idxs, items_static_embeddings, 'test', eval(args.Ks),
                                                             USER_NUM_NEIGHBORS, ITEM_NUM_NEIGHBORS, BATCH_SIZE)
 # print('Test statistics: -- auc: {}, ap: {}'.format(test_auc, test_ap))
 logger.info('test precision@{}: {}, test precision@{}: {}, test precision@{}: {}, test precision@{}: {}, test precision@{}: {}, test precision@{}: {}'.format(eval(args.Ks)[0], test_precision[0], eval(args.Ks)[1], test_precision[1], 
